@@ -1,0 +1,26 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {1}介绍}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}加法特征归因法}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}LIME}{2}{}\protected@file@percent }
+\citation{lrp}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}DeepLIFT}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}逐层相关性传播（Layer-Wise Relevance Propagation, LRP）}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}经典 Shapley 值估计}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}简单属性唯一确定加性特征归因}{4}{}\protected@file@percent }
+\citation{shapley}
+\@writefile{toc}{\contentsline {section}{\numberline {4}SHAP(SHapley 加法解释)}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces SHAP（Shapley Additive exPlanation）值归因于每个特征在该特征条件下的期望模型预测的变化。它们解释了如何从基础值 $E[f(z)]$（即如果我们不知道任何特征时的预测值）过渡到当前的输出 $f(x)$。该图显示了单一顺序。当模型是非线性的或者输入特征不是独立的时，特征被添加到期望计算中的顺序会影响 SHAP 值，因此 SHAP 值是所有可能顺序的加权平均。}}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}模型无关的近似方法}{7}{}\protected@file@percent }
+\citation{shapley_regression}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}特定模型的近似方法}{8}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces (A) 当所有可能的 $z'$ 向量按基数排序时，Shapley 核权重是对称的。本示例中有 $2^{15}$ 个向量。这与先前启发式选择的核不同。(B) 由多个简单组件组成的组合模型（如深度神经网络）可以使用 DeepLIFT 方式的反向传播进行快速近似计算。}}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}计算实验与用户研究}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 三种加性特征归因方法的比较：Kernel SHAP（使用去偏 Lasso）、Shapley 采样值，以及 LIME（使用开源实现）。图中显示了在两个模型中对一个特征的特征重要性估计，随着对原始模型函数的评估次数增加。200 次重复估计的第 10 和第 90 百分位数如图所示。(A) 决策树模型，使用所有 10 个输入特征来解释单个输入。(B) 决策树仅使用 100 个输入特征中的 3 个来解释单个输入。}}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}计算效率}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}与人类直觉的一致性}{11}{}\protected@file@percent }
+\citation{deeplift_shap}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}解释类别差异}{12}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 人类特征影响估计值显示为 30 (A) 和 52 (B) 名随机个体中最常见的解释。 (A) 模型输出值为 2 时的特征归因（疾病评分），当发烧和咳嗽都存在时，模型输出 2；当仅有发烧或咳嗽时，输出 5；否则输出 0。 (B) 三名男子的利润归因，基于任何一人答对最多问题的数量。第一人答对 5 道题，第二人答对 4 题，第三人未答对任何题，因此总利润为 $5$}}{12}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 对 MNIST 数据集训练的卷积神经网络输出进行解释。原始 DeepLIFT 无显式 Shapley 逼近，而新的 DeepLIFT 试图更接近 Shapley 值。 (A) 红色区域增加该类别的概率，蓝色区域降低该类别的概率。遮蔽（Masked）部分用于将 8 预测为 3。 (B) 对 20 张随机图像进行遮蔽时，log-odds 变化表明使用更好的 SHAP 值估计的效果。}}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}结论}{13}{}\protected@file@percent }
+\gdef \@abspage@last{13}

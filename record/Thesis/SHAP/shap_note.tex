@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{ctex}         % 支持中文
+\usepackage{amsmath, amssymb, amsfonts} % 数学公式
+\usepackage{graphicx}     % 插入图片
+\usepackage{hyperref}     % 生成超链接
+\usepackage{geometry}     % 页面布局
+\usepackage{listings}     % 代码块
+\usepackage{xcolor}       % 颜色支持
+\geometry{a4paper, margin=1in} % 页边距
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=cyan}
+
+% 代码样式
+\lstset{
+    language=Python, % 代码语言
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    breaklines=true,
+    backgroundcolor=\color{gray!10},
+    frame=single
+}
+
+\title{论文阅读笔记}
+\author{你的姓名}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本文是对论文《XXX》的学习笔记，主要总结了其研究背景、方法、实验结果，并对其优缺点进行了分析。
+\end{abstract}
+
+\textbf{关键词：} 机器学习、XAI、Shapley值、模型解释性
+
+\section{论文基本信息}
+\textbf{论文标题：} XXX \\
+\textbf{作者：} XXX 等 \\
+\textbf{发表会议/期刊：} NeurIPS 2023 \\
+\textbf{链接：} \href{https://arxiv.org/abs/XXX}{arXiv链接}
+
+\section{研究背景与问题}
+本论文的研究目标是解决 \textbf{XXX} 问题。现有方法存在如下问题：
+\begin{itemize}
+    \item 方法 A 在 XXX 方面表现不佳；
+    \item 方法 B 计算复杂度高，难以应用于大规模数据；
+    \item 方法 C 解释性较差，无法有效解释模型决策。
+\end{itemize}
+本文提出了一种新方法 **XXX**，通过 XXX 改进了现有方法的局限性。
+
+\section{方法介绍}
+本文方法主要包含以下几个部分：
+
+\subsection{数学公式}
+本文基于 Shapley 值计算特征贡献，其计算公式如下：
+\begin{equation}
+\phi_i = \sum_{S \subseteq F \setminus \{i\}} \frac{|S|!(|F| - |S| - 1)!}{|F|!} \left[ f_{S \cup \{i\}}(x) - f_S(x) \right]
+\end{equation}
+其中：
+- \( \phi_i \) 表示特征 \( x_i \) 的归因值；
+- \( S \) 是特征子集；
+- \( f_S(x) \) 是仅包含 \( S \) 特征的模型预测值。
+
+\subsection{算法流程}
+论文提出的方法 **XXX** 主要包括以下步骤：
+\begin{enumerate}
+    \item 读取输入数据 \( x \) 并进行预处理；
+    \item 计算特征子集 \( S \) 对预测结果的影响；
+    \item 使用 Shapley 值计算每个特征的重要性；
+    \item 生成最终的模型解释。
+\end{enumerate}
+
+\subsection{代码示例}
+论文中的方法可以用 Python 实现，代码示例如下：
+\begin{lstlisting}
+import shap
+import xgboost
+\end{lstlisting}
+
+\section{实验与结果分析}
+实验部分使用数据集 **XXX**，并与现有方法进行对比。
+
+\begin{figure}[h]
+    \centering
+    %\includegraphics[width=0.8\textwidth]{}
+    \caption{实验结果对比}
+    \label{fig:results}
+\end{figure}
+
+从图 \ref{fig:results} 可以看出，新方法 **XXX** 在指标 **AUC** 和 **解释性** 方面优于现有方法。
+
+\section{优缺点分析}
+\subsection{优点}
+\begin{itemize}
+    \item 计算效率高，相比传统方法减少了 50\% 计算时间；
+    \item 可解释性强，能够有效解释模型预测；
+    \item 适用于多种模型，如 XGBoost、深度学习等。
+\end{itemize}
+
+\subsection{缺点}
+\begin{itemize}
+    \item 依赖于特定的先验假设，可能在部分任务上表现不佳；
+    \item 需要大量计算 Shapley 值，计算复杂度仍较高。
+\end{itemize}
+
+\section{个人总结}
+本论文提出了一种新的 **XXX 方法**，在 **解释性 AI** 领域具有重要意义。相比于 LIME 和 DeepLIFT，SHAP 在理论上更加稳健，并能够更合理地分配特征贡献。然而，该方法仍存在计算成本高的问题，未来可以考虑使用 **近似方法**（如 Kernel SHAP）来提高计算效率。此外，论文中的实验虽然全面，但缺乏真实业务场景的应用，后续可以尝试在 **金融欺诈检测** 等实际问题上进行实验。
+
+\section{参考文献}
+\begin{thebibliography}{99}
+
+\end{thebibliography}
+
+\end{document}

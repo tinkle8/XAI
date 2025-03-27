@@ -1,0 +1,28 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {1}介绍}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}相关工作}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}IMPACTX 框架}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}采用的假设和符号}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}一般描述}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}训练 IMPACTX}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  IMPACTX 框架概述。在 IMPACTX 的训练阶段，特征提取器 \( M \) 和潜在解释预测器 \( LEP \) 都接收输入 \( \mathbf  {x} \)，分别生成 \( \mathbf  {m} \) 和 \( \mathbf  {z} \)。然后，这些表示被分类器 \( C \) 组合用于分类。特别地，\( LEP \) 和解码器 \( D \) 利用解释函数 \( R(\mathcal  {A}(\mathbf  {x})), \mathbf  {x}, y） \) 来生成可解释性信息。该架构采用融合均方误差（MSE） 和交叉熵（CE） 的损失函数进行训练，以优化解释重建并提高分类性能。在 IMPACTX 的推理阶段，分类器 \( C(\mathbf  {m}, \mathbf  {z}) \) 预测类别 \( \hat  {y} \)，而 \( LEP - D(\mathbf  {x}) \) 负责重建输入 \( \mathbf  {x} \) 的解释 \( r \)。}}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}生成基于归因的解释}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}实验装置}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}数据}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}解释生成器算法}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}IMPACTX 模块和两阶段培训}{8}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 网格搜索优化策略的变化范围}}{9}{}\protected@file@percent }
+\newlabel{tab:grid_search}{{1}{9}{IMPACTX 模块和两阶段培训}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 为 CIFAR-10 和 CIFAR100 数据集设计的解码器架构。该架构由一个卷积层（Conv2D）、一个全连接层（FC）和一个上采样层组成。所有卷积层的内核大小都是 3 × 3，而过滤器的数量则由输出形状的三个维度决定。}}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}评价措施}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}结果与讨论}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}性能}{10}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces CIFAR-10、CIFAR-100 和 STL-10 测试集上的准确率（\%）。最佳结果以 \textbf  {粗体} 显示。}}{11}{}\protected@file@percent }
+\newlabel{tab:accuracy_results}{{2}{11}{性能}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 来自 CIFAR-10 测试集的图像。图像已经过过滤，以实现更好的可视化效果。}}{12}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 来自 CIFAR-100 测试集的图像。图像已经过过滤，以实现更好的可视化效果。}}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}评估归因映射}{13}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 来自 STL-10 测试集的图像。图像已经过过滤，以实现更好的可视化效果。}}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}讨论}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}结论}{15}{}\protected@file@percent }
+\gdef \@abspage@last{16}
