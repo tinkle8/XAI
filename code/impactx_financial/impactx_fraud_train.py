@@ -73,6 +73,12 @@ class ExplanationDecoder(nn.Module):
     def forward(self, z):
         return self.decoder(z)
 
+"""
+联合分类器
+	•接收两个向量：m（M 提取的特征） 和 z（LEP 提供的解释）
+	•拼接成 [m || z]，作为最终分类依据
+	•这个融合体现了 IMPACTX 的核心思想：“利用解释来辅助分类”
+"""
 class FraudClassifier(nn.Module):
     def __init__(self, feature_dim, latent_dim):
         super().__init__()
@@ -92,6 +98,15 @@ class FraudClassifier(nn.Module):
 # 2. 自定义数据集类
 # =======================
 
+
+"""
+数据封装类
+	•将 X, y, r 封装成 PyTorch 数据格式
+	•每个 batch 会返回三元组 (x_batch, y_batch, r_batch)
+	•x_batch: 原始交易输入
+	•y_batch: 真实标签（是否欺诈）
+	•r_batch: SHAP 给出的解释图
+"""
 class FraudDataset(Dataset):
     def __init__(self, X, y, r):
         self.X = torch.tensor(X, dtype=torch.float32)
@@ -108,7 +123,14 @@ class FraudDataset(Dataset):
 # =======================
 # 3. 联合损失函数
 # =======================
-
+"""
+✅ 为什么是两部分组成？
+	•第一项：分类损失 Binary Cross Entropy → 训练分类器 C
+	•第二项：解释图重建损失 MSE → 训练 LEP + D
+✅ lambda_mse 的意义：
+	•控制解释的学习对总损失的影响
+	•比如设置为 0.5，代表我们更关注分类性能；设置为 2.0，说明更强调解释图的学习
+"""
 def compute_loss(y_true, y_pred, r_true, r_pred, lambda_mse=1.0):
     bce_loss = nn.BCELoss()(y_pred, y_true)
     mse_loss = nn.MSELoss()(r_pred, r_true)
